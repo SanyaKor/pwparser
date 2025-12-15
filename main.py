@@ -193,9 +193,9 @@ def dump_items_to_json(items, path="collected_items.json"):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(prog="pwparser", description="Simple CLI parser for amazon website")
-    parser.add_argument("--website", default=website, help="website url")
-    parser.add_argument("--query", default=query, help="simple query for searching goods")
-    parser.add_argument("--n", default=items_requested, help="Amount of items required to parse [1, 100]")
+    parser.add_argument("--website", default="https://www.amazon.de", help="website url")
+    parser.add_argument("--query", default="harry potter buch", help="simple query for searching goods")
+    parser.add_argument("--n", default=34, help="Amount of items required to parse [1, 100]")
     parser.add_argument("--out", default="collected_items.json", help="Output json file name(default - collected_items.json)")
     parser.add_argument("--silent_mode", default=True, help="flag to parse websites without showing GUI [TRUE/FALSE]")
 
