@@ -67,7 +67,6 @@ The script supports the following command-line options:
 
 ### Examples
 
-Run with visible browser:
 
 ```bash
 python main.py --query "harry potter book"
