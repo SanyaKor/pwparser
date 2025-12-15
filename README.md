@@ -70,7 +70,7 @@ The script supports the following command-line options:
 
 ```bash
 python main.py --query "harry potter book"
-
+```
 
 ## Output Example
 
