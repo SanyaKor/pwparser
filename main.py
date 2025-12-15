@@ -2,14 +2,9 @@ from playwright.sync_api import sync_playwright
 import argparse
 import logging
 import json
+import os
+from dotenv import load_dotenv
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)s | %(message)s",
-    datefmt="%H:%M:%S"
-)
-
-logger = logging.getLogger(__name__)
 
 ########################
 ########################
@@ -20,6 +15,26 @@ website = "https://www.amazon.de"
 query = "harry potter buch"
 
 
+def setup_logging():
+    load_dotenv()
+    level_name = os.getenv("LOG_LEVEL", "INFO").upper()
+
+    level = logging.getLevelName(level_name)
+    if not isinstance(level, int):
+        level = logging.INFO
+
+    logging.basicConfig(
+        level=level,
+        format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+        datefmt="%H:%M:%S",
+    )
+
+    logger = logging.getLogger(__name__)
+    logger.info(f"Logging initialized with level: {logging.getLevelName(level)}")
+
+    return logger
+
+logger = setup_logging()
 
 def collect_n_items_on_page(page, items_required = 16):
 
@@ -195,7 +210,7 @@ if __name__ == "__main__":
     if(args.n > 100 or args.n < 1):
         logging.error("Invalid amount of items requested [1, 100]")
 
-    logger.info(f"Running amazon search, logs level{logger.level}")
+    logger.info(f"Running amazon search ...")
     logger.info(f"Website - {website}, Query: {query}, Items requested: {items_requested}")
 
     collected_items = parse_website(website, query, items_requested, False)
