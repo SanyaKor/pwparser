@@ -85,3 +85,14 @@ python main.py --query "harry potter book"
   ...
 ]
 ```
+
+## Logging Configuration
+
+The logging level can be controlled via an environment variable.
+
+Set the desired log level before running the script:
+
+```bash
+export LOG_LEVEL=DEBUG
+python main.py --query "harry potter book"
+```
