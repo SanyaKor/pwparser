@@ -21,7 +21,7 @@ query = "harry potter buch"
 
 
 
-def collect_all_items_on_page(page, items_required = 16):
+def collect_n_items_on_page(page, items_required = 16):
 
     items = []
 
@@ -111,12 +111,12 @@ def collect_items(page, items_requested=32, max_pages=100):
         if items_required <= 0:
             break
         elif items_required <= 16:
-            items = collect_all_items_on_page(page, items_required)
+            items = collect_n_items_on_page(page, items_required)
             collected_items.extend(items)
             break
 
 
-        items = collect_all_items_on_page(page)
+        items = collect_n_items_on_page(page)
         collected_items.extend(items)
 
         next_btn = page.locator("a.s-pagination-next")
