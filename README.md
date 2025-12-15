@@ -55,13 +55,13 @@ playwright install
 
 The script supports the following command-line options:
 
-| Argument | Description | Default |
-|--------|-------------|---------|
+| Argument | Description | Default                  |
+|--------|-------------|--------------------------|
 | `--website` | Target website URL | `https://www.amazon.com` |
-| `--query` | Search query | **required** |
-| `--n` | Number of items to collect (1–100) | `50` |
-| `--out` | Output JSON file name | `collected_items.json` |
-| `--silent` | Run browser in headless (silent) mode | `False` |
+| `--query` | Search query | "harry potter buch"      |
+| `--n` | Number of items to collect (1–100) | `50`                     |
+| `--out` | Output JSON file name | `collected_items.json`   |
+| `--silent` | Run browser in headless (silent) mode | `False`                  |
 
 ---
 
